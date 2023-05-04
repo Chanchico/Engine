@@ -1,18 +1,26 @@
 package com.chanchico.test;
 
-import com.chanchico.core.WindowsManager;
+import com.chanchico.core.EngineManager;
+import com.chanchico.core.WindowManager;
+import com.chanchico.core.utils.Consts;
 import org.lwjgl.Version;
 
 public class Launcher {
+
+    private static WindowManager windowManager;
+    private static EngineManager engine;
     public static void main(String[] args) {
         System.out.println(Version.getVersion());
-        WindowsManager windowsManager = new WindowsManager("Test", 800, 600, true);
-        windowsManager.init();
-
-        while(!windowsManager.windowShouldClose()){
-            windowsManager.update();
+        windowManager = new WindowManager(Consts.TITLE, 0, 0, false);
+        engine = new EngineManager();
+        try{
+            engine.start();
+        }catch (Exception e){
+            e.printStackTrace();
         }
+    }
 
-        windowsManager.cleanup();
+    public static WindowManager getWindowManager(){
+        return windowManager;
     }
 }

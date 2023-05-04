@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryUtil;
 
 
-public class WindowsManager {
+public class WindowManager {
 
 
     public static final float FOV = (float) Math.toRadians(60);
@@ -22,7 +22,7 @@ public class WindowsManager {
     private boolean resize, vSync;
     private final Matrix4f projectionMatrix;
 
-    public WindowsManager(String title, int width, int height, boolean vSync){
+    public WindowManager(String title, int width, int height, boolean vSync){
         this.title = title;
         this.width = width;
         this.height = height;
