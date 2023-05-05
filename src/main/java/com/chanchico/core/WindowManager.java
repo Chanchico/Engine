@@ -151,4 +151,16 @@ public class WindowManager {
     public boolean windowShouldClose() {
         return GLFW.glfwWindowShouldClose(window);
     }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public long getWindow() {
+        return window;
+    }
 }

@@ -8,16 +8,22 @@ import org.lwjgl.Version;
 public class Launcher {
 
     private static WindowManager windowManager;
-    private static EngineManager engine;
+
+    private static TestGame game;
     public static void main(String[] args) {
         System.out.println(Version.getVersion());
-        windowManager = new WindowManager(Consts.TITLE, 0, 0, false);
-        engine = new EngineManager();
+        windowManager = new WindowManager(Consts.TITLE, 1600, 900, false);
+        game = new TestGame();
+        EngineManager engine = new EngineManager();
         try{
             engine.start();
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public static TestGame getGame() {
+        return game;
     }
 
     public static WindowManager getWindowManager(){
